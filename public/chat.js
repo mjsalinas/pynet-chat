@@ -8,6 +8,16 @@ let actions = document.getElementById('actions');
 let clear = document.getElementById('chatbox-clear');
 let agente = document.getElementById('agents-name');
 
+
+message.addEventListener("keyup", function(event) {
+    // enter es la clave 13
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      btn.click();
+    }
+  });
+
+
 btn.addEventListener('click', function() {
     socket.emit('chat:message',{
         username: username.value, 
